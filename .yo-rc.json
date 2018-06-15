@@ -1,11 +1,24 @@
 {
   "generator-phovea": {
     "type": "service",
-    "name": "phovea_server",
+    "name": "test",
     "serviceName": "api",
     "author": "The Caleydo Team",
     "githubAccount": "phovea",
-    "modules": [],
+    "modules": [
+      "phovea_core",
+      "phovea_d3",
+      "phovea_vis",
+      "phovea_ui",
+      "phovea_importer",
+      "phovea_vis_lineup",
+      "phovea_security_flask",
+      "phovea_clue",
+      "phovea_processing_queue",
+      "tdp_core",
+      "pathfinder_ccle",
+      "pathfinder_graph"
+    ],
     "extensions": [],
     "sextensions": [
       {
@@ -209,6 +222,23 @@
         "future==0.16.0"
       ]
     },
-    "today": "Thu, 03 Nov 2016 14:43:16 GMT"
+    "today": "Thu, 03 Nov 2016 14:43:16 GMT",
+    "app": "Test",
+    "clientOnly": false,
+    "entries": {
+      "app": "./src/index.ts"
+    },
+    "libraryAliases": {
+      "d3": "d3/d3"
+    },
+    "libraryExternals": [
+      "d3",
+      "jquery",
+      "font-awesome",
+      "papaparse",
+      "lineupjs",
+      "marked"
+    ],
+    "ignores": []
   }
 }

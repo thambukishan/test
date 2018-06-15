@@ -1,21 +1,14 @@
-phovea_server [![Phovea][phovea-image]][phovea-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+test [![Phovea][phovea-image]][phovea-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 =====================
 
-Python server implementation of Phovea that provides: 
-
-* Data set handling
-* Reading data from CSV
-* ID mapping
-* Selection and range handling
-* General graph implementation
-* WebSocket stream
+A simple test application
 
 Installation
 ------------
 
 ```
-git clone https://github.com/phovea/phovea_server.git
-cd phovea_server
+git clone https://github.com/thambukishan/test.git
+cd test
 npm install
 ```
 
@@ -33,6 +26,12 @@ Building
 npm run build
 ```
 
+Launching
+---------
+
+```
+npm start
+```
 
 
 ***
@@ -43,9 +42,9 @@ This repository is part of **[Phovea](http://phovea.caleydo.org/)**, a platform 
 
 [phovea-image]: https://img.shields.io/badge/Phovea-Server%20Plugin-10ACDF.svg
 [phovea-url]: https://phovea.caleydo.org
-[npm-image]: https://badge.fury.io/js/phovea_server.svg
-[npm-url]: https://npmjs.org/package/phovea_server
-[travis-image]: https://travis-ci.org/phovea/phovea_server.svg?branch=master
-[travis-url]: https://travis-ci.org/phovea/phovea_server
-[daviddm-image]: https://david-dm.org/phovea/phovea_server/status.svg
-[daviddm-url]: https://david-dm.org/phovea/phovea_server
+[npm-image]: https://badge.fury.io/js/test.svg
+[npm-url]: https://npmjs.org/package/test
+[travis-image]: https://travis-ci.org/phovea/test.svg?branch=master
+[travis-url]: https://travis-ci.org/phovea/test
+[daviddm-image]: https://david-dm.org/phovea/test/status.svg
+[daviddm-url]: https://david-dm.org/phovea/test

@@ -1,4 +1,4 @@
-image: caleydo/phovea_circleci_python:v1.0
+image: circleci/node:6-browsers
 
 variables:
   GIT_DEPTH: "1"
@@ -6,7 +6,7 @@ variables:
 cache:
   key: "$CI_REPOSITORY_URL-$CI_COMMIT_REF_NAME"
   paths:
-   - ~/venv
+  - node_modules
 
 before_script:
   # Install ssh-agent if not already installed, it is required by Docker.
@@ -30,20 +30,15 @@ stages:
   - install
   - build
 
-install-pip-wee:
+install-npm-wee:
   stage: install
-  script: |
-    (!(test -f docker_packages.txt) || (cat docker_packages.txt | xargs sudo apt-get install -y))
-    virtualenv ~/venv
-    . ~/venv/bin/activate
-    pip install --upgrade --upgrade-strategy=only-if-needed -r requirements_dev.txt
-    pip install --upgrade --upgrade-strategy=only-if-needed -r requirements.txt
+  script:
+  - npm install
 
 dist:
   stage: build
-  script: |
-    . ~/venv/bin/activate
-    npm run dist
+  script:
+    - npm run dist
   allow_failure: false
   artifacts:
     expire_in: 1 week

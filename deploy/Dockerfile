@@ -1,20 +1,9 @@
-FROM caleydo/phovea_python:v1.0
+FROM nginx:alpine
 
 MAINTAINER Samuel Gratzl <samuel.gratzl@datavisyn.io>
-WORKDIR /phovea
-RUN printf "from phovea_server import launch\nlaunch.run()\n" > /phovea/launch.py
 
-# install dependencies last step such that everything before can be cached
-COPY requirements*.txt docker_packages.txt docker_script*.sh _docker_data* ./
-RUN (!(test -s docker_packages.txt) || (apt-get update && \
-    (cat docker_packages.txt | xargs apt-get install -y))) && \
-    (pip install --no-cache-dir -r requirements.txt)
-RUN (!(test -f docker_script.sh) || (bash ./docker_script.sh))
-
-COPY ./build/source ./
-
-ENV PHOVEA_ENV=production
-ENV PHOVEA_SERVICE=api
-ENV PHOVEA_CONFIG_PATH=config.json
-CMD python launch.py --env ${PHOVEA_ENV} ${PHOVEA_SERVICE}
-EXPOSE 80
+ENV PHOVEA_API_SERVER=api
+ENV PHOVEA_NGINX_PORT=80
+COPY ./deploy/nginx-default.conf /etc/nginx/conf.d/default.conf
+CMD sed -i -e "s/PHOVEA_API_SERVER/${PHOVEA_API_SERVER-api}/g" /etc/nginx/conf.d/default.conf && sed -i -e "s/PHOVEA_NGINX_PORT/${PHOVEA_NGINX_PORT-api}/g" /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
+COPY ./build /usr/share/nginx/html
