@@ -5,20 +5,7 @@
     "serviceName": "api",
     "author": "The Caleydo Team",
     "githubAccount": "phovea",
-    "modules": [
-      "phovea_core",
-      "phovea_d3",
-      "phovea_vis",
-      "phovea_ui",
-      "phovea_importer",
-      "phovea_vis_lineup",
-      "phovea_security_flask",
-      "phovea_clue",
-      "phovea_processing_queue",
-      "tdp_core",
-      "pathfinder_ccle",
-      "pathfinder_graph"
-    ],
+    "modules": [],
     "extensions": [],
     "sextensions": [
       {
@@ -205,7 +192,25 @@
         }
       }
     ],
-    "libraries": [],
+    "libraries": [
+      "d3",
+      "jquery",
+      "papaparse",
+      "jqueryui",
+      "lineupjs",
+      "font-awesome",
+      "bootstrap",
+      "select2",
+      "moment",
+      "scrollTo",
+      "lru-fast",
+      "selectivity",
+      "lodash",
+      "marked",
+      "file-saver",
+      "datavisyn-scatterplot",
+      "colorbrewer"
+    ],
     "unknown": {
       "requirements": [
         "Flask==0.11.1",
@@ -229,15 +234,28 @@
       "app": "./src/index.ts"
     },
     "libraryAliases": {
-      "d3": "d3/d3"
+      "d3": "d3/d3",
+      "scrollTo": "jquery.scrollto/jquery.scrollTo.js"
     },
     "libraryExternals": [
       "d3",
       "jquery",
-      "font-awesome",
       "papaparse",
+      "jqueryui",
       "lineupjs",
-      "marked"
+      "font-awesome",
+      "bootstrap",
+      "bootstrap-sass",
+      "select2",
+      "moment",
+      "scrollTo",
+      "lru-fast",
+      "selectivity",
+      "lodash",
+      "marked",
+      "file-saver",
+      "datavisyn-scatterplot",
+      "colorbrewer"
     ],
     "ignores": []
   }
